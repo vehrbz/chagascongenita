@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folder Orientativo - Doença de Chagas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8f4fc 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .folder-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.0em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .alert-banner {
+            background: #fff3cd;
+            border: 2px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: bold;
+            color: #856404;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 5px solid #3498db;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3 i {
+            color: #3498db;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .card li:before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .flow-section {
+            background: #e8f4fc;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .flow-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        .flow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            background: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content strong {
+            color: #2c3e50;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+            margin-top: 30px;
+            border-radius: 0 0 15px 15px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .contact-details {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        .icon {
+            font-size: 1.2em;
+        }
+
+        .highlight {
+            background: #ffeaa7;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="folder-container">
+        <div class="header">
+            <h1>MANEJO DO RECÉM-NASCIDO</h1>
+	 <h2>Filho de Mãe com Doença de Chagas</h2>
+            <br>
+<div class="subtitle">Baseado nas Normas Técnicas de 2024 - SES/SVS/DIVEP/GVDT. Idealizado pelo Núcleo Hospitalar de Epidemiologia do Hospital Regional de Brazlândia-DF.</div>
+        </div>
+
+        <div class="content">
+            <div class="alert-banner">
+                ⚠️ TODOS os recém-nascidos de mães com Chagas são considerados CASOS SUSPEITOS de Doença de Chagas Aguda
+            </div>
+
+            <div class="grid-container">
+                <div class="card">
+                    <h3><i class="icon">📋</i> NOTIFICAÇÃO OBRIGATÓRIA</h3>
+                    <ul>
+                        <li><strong>Caso suspeito:</strong> Notificar imediatamente no SINAN</li>
+                        <li><strong>Caso confirmado:</strong> Manter notificação atualizada</li>
+                        <li><strong>Chagas crônica:</strong> Notificar semanalmente no e-SUS Notifica</li>
+                        <li>Completar todos os campos obrigatórios da ficha</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3><i class="icon">🔬</i> DIAGNÓSTICO LABORATORIAL</h3>
+                    <ul>
+                        <li><strong>Fase aguda:</strong> Exames parasitológicos - sangue (parasitas circulantes)</li>
+                        <li><strong>Fase crônica:</strong> Exames sorológicos (anticorpos IgG)</li>
+                        <li><strong>Material:</strong> Tubo EDTA 4ml + tubo gel 2ml</li>
+                        <li>Duas metodologias diferentes para confirmação</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3><i class="icon">👶</i> ALEITAMENTO MATERNO</h3>
+                    <ul>
+                        <li><strong>NÃO é contraindicado</strong> na doença de Chagas crônica</li>
+                        <li>Avaliar presença de fissuras mamilares</li>
+			<li>Em caso de fissuras, orientar cuidados específicos</li>
+                        <li>Risco de desnutrição > risco de transmissão</li>
+                        
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3><i class="icon">💊</i> TRATAMENTO</h3>
+                    <ul>
+                        <li><strong>Benznidazol</strong> é a medicação de escolha</li>
+                        <li>Taxa de cura >90% no primeiro ano de vida</li>
+                        <li>Menos efeitos colaterais em crianças</li>
+                        <li>Iniciar imediatamente após confirmação</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flow-section">
+                <h2>FLUXOGRAMA DE MANEJO - PASSO A PASSO</h2>
+                <div class="flow-steps">
+                    <div class="flow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <strong>IDENTIFICAÇÃO DO CASO</strong><br>
+                            Mãe com diagnóstico confirmado de Doença de Chagas (aguda ou crônica)
+                        </div>
+                    </div>
+
+                    <div class="flow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <strong>NOTIFICAÇÃO IMEDIATA</strong><br>
+                            RN considerado caso suspeito de Chagas Aguda - Notificar no SINAN Net
+                        </div>
+                    </div>
+
+                    <div class="flow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <strong>EXAME PARASITOLÓGICO (SANGUE) AO NASCER</strong><br>
+                            Coletar tubo EDTA 4ml + tubo gel 2ml<br>
+                            <em>Encaminhar ao LACEN DF</em>
+                        </div>
+                    </div>
+
+                    <div class="flow-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <strong>RESULTADO POSITIVO</strong><br>
+                            • Confirmar caso<br>
+                            • Iniciar tratamento imediatamente com Benznidazol<br>
+                            • Manter notificação atualizada
+                        </div>
+                    </div>
+
+                    <div class="flow-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <strong>RESULTADO NEGATIVO ou NÃO REALIZADO</strong><br>
+                            • Aguardar 9 meses (evitar interferência de anticorpos maternos)<br>
+                            • Realizar sorologia IgG após 9 meses<br>
+                            • Dois testes com metodologias diferentes
+                        </div>
+                    </div>
+
+                    <div class="flow-step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <strong>ACOMPANHAMENTO FINAL</strong><br>
+                            <strong>Sorologia reagente:</strong> Confirmar TV e iniciar tratamento<br>
+                            <strong>Sorologia não reagente:</strong> Descartar transmissão vertical
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<div class="card">
+                <h3><i class="icon">📝</i> POSOLOGIA DO BENZNIDAZOL PEDIÁTRICO</h3>
+                <p><strong>Dosagem:</strong> 5 a 10mg/kg/dia, divididos em 2 ou 3 tomadas diárias, por 60 dias.</p>
+                <table class="posology-table">
+                    <thead>
+                        <tr>
+                            <th>Peso da Criança &nbsp; &nbsp; &nbsp;</th>
+                            <th>Dosagem Sugerida &nbsp; &nbsp; &nbsp;</th>
+                            <th>Frequência &nbsp; &nbsp; &nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Entre 2,5 e 5 kg &nbsp; &nbsp; &nbsp;</td>
+                            <td>1 comprimido (12,5mg) &nbsp; &nbsp; &nbsp;</td>
+                            <td>2 vezes ao dia &nbsp; &nbsp; &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Entre 5 e 10 kg &nbsp; &nbsp; &nbsp;</td>
+                            <td>2 comprimidos (25mg) &nbsp; &nbsp; &nbsp;</td>
+                            <td>2 vezes ao dia &nbsp; &nbsp; &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Entre 10 e 15 kg &nbsp; &nbsp; &nbsp;</td>
+                            <td>3 comprimidos (37,5mg) &nbsp; &nbsp; &nbsp;</td>
+                            <td>3 vezes ao dia &nbsp; &nbsp; &nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card" style="margin-top: 25px;">
+                <h3><i class="icon">💡</i> LEMBRETES IMPORTANTES</h3>
+                <ul>
+                    <li>Transmissão vertical ocorre em <span class="highlight">1-10%</span> dos casos</li>
+                    <li>Diagnóstico precoce + tratamento = <span class="highlight">90% de cura</span></li>
+                    <li>Amamentar é seguro (exceto com fissuras mamilares)</li>
+                    <li>Notificar <span class="highlight">TODOS</span> os casos suspeitos</li>
+                    <li>Acompanhar mãe para possível tratamento pós-amamentação</li>
+                </ul>
+            </div>
+        </div>
+
+
+            <div class="contact-info">
+                <h3>INFORMAÇÕES E CONTATOS</h3>
+                <p>Em caso de dúvidas sobre notificação, diagnóstico ou tratamento:</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span><strong>Telefone:</strong> (61) 3449-6395</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span><strong>WhatsApp:</strong> (61) 9 9921-6516</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>✉️</span>
+                        <span><strong>E-mail:</strong> vehrbz@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+
+
+        <div class="footer">
+            <p>Secretaria de Estado de Saúde do Distrito Federal | Vigilância Epidemiológica</p>
+            <p>Baseado nas Normas Técnicas de 2024 - SES/SVS/DIVEP/GVDT. <br>Este é um instrumento de apoio. Sempre consulte o protocolo oficial e um profissional de saúde.</p>
+        </div>
+    </div>
+</body>
+</html>
